@@ -1,0 +1,41 @@
+" Auto download and set vim-plug
+let data_dir = '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" vim-plug plugins
+call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/vim-peekaboo'
+Plug 'simnalamburt/vim-mundo'
+Plug 'preservim/nerdtree'
+Plug 'junegunn/vim-plug'
+
+call plug#end()
+
+" My vim settings
+set nocompatible						" turning off vi compatibily mode
+set relativenumber number					" turning on relative line numbers
+set hidden	 						" set so we can switch tabs without saving the buffers
+set textwidth=0
+set undofile							" enable persistent undo
+set undodir=~/.vim/undo						" set undo directory
+filetype plugin on 						" enable filetype identification
+if executable("rg")
+	set grepprg=rg\ --vimgrep\ --smart-case\ --hidden	" ripgrep as grep tool
+	set grepformat^=%f:%l:%c:%m				" set grepformat
+endif
+
+" My key mapping overwrites
+" nnoremap <silent> <C-f> :Files<CR>
+" nnoremap <silent> <Leader>f :Rg<CR>
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
