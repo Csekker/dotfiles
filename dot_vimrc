@@ -20,6 +20,7 @@ call plug#end()
 
 " My vim settings
 set nocompatible						" turning off vi compatibily mode
+set ignorecase smartcase					" turn off case check for search when all lower cased, smart case otherwise
 set relativenumber number					" turning on relative line numbers
 set hidden	 						" set so we can switch tabs without saving the buffers
 set textwidth=0
@@ -34,8 +35,8 @@ endif
 " My key mapping overwrites
 " nnoremap <silent> <C-f> :Files<CR>
 " nnoremap <silent> <Leader>f :Rg<CR>
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+" noremap <Up> <NOP>
+" noremap <Down> <NOP>
+" noremap <Left> <NOP>
+" noremap <Right> <NOP>
 
